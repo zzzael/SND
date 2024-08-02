@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="SND">
+    <meta property="og:url" content="https://zzzael.github.io/SND/landing.html">
+    <meta property="og:title" content="SND">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="SND IS A UNRELEASED MUSIC SERVICE">
+    <meta property="og:image" content="https://zzzael.github.io/SND/src/metadata.png">
+    <meta property="og:image:secure_url" content="https://zzzael.github.io/SND/src/metadata.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SND">
+    <meta name="twitter:description" content="SND IS A UNRELEASED MUSIC SERVICE">
+    <title>SND</title>
+    <style>
+        /* Importing local SF Pro font */
+        @font-face {
+            font-family: 'SF Pro';
+            src: url('sfpro.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'SF Pro', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .message {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .email-input {
+            font-family: 'SF Pro', sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: none;
+            width: 300px;
+            text-align: center;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-bottom: 1px solid #000;
+        }
+
+        .button {
+            display: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'SF Pro', sans-serif;
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .button.skip {
+            background-color: #ccc;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        SOUND WOULD LIKE YOU TO UPLOAD YOUR EMAIL<br><br>
+        THIS IS COMPLETELY OPTIONAL
+    </div>
+    <input type="email" class="email-input" placeholder="SOUND.ZAEL@SOUND.ORG" id="email-input">
+    <button class="button submit" id="submit-button">Submit</button>
+    <button class="button skip" id="skip-button">Skip</button>
+
+    <script>
+        const emailInput = document.getElementById('email-input');
+        const submitButton = document.getElementById('submit-button');
+        const skipButton = document.getElementById('skip-button');
+
+        emailInput.addEventListener('input', () => {
+            if (emailInput.value.length > 10) {
+                submitButton.style.display = 'block';
+            } else {
+                submitButton.style.display = 'none';
+            }
+        });
+
+        setTimeout(() => {
+            if (emailInput.value === '') {
+                skipButton.style.display = 'block';
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
