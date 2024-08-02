@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Importing local SF Pro font */
+        @font-face {
+            font-family: 'SF Pro';
+            src: url('sfpro.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'SF Pro', sans-serif;
+            background-color: #f0f0f0; /* Adjust as needed */
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .date-time {
+            position: absolute;
+            top: 30px; /* Moved down */
+            left: 10px;
+            font-size: 13px; /* Smaller font size */
+            color: #000;
+        }
+
+        .message {
+            font-size: 13px; /* Smaller font size */
+            font-weight: 400;
+            text-align: left;
+            margin: 0;
+            padding-left: 20px; /* Space from the left edge */
+        }
+    </style>
+</head>
+<body>
+    <div class="date-time" id="date-time">
+        <!-- Date and time will be inserted here by JavaScript -->
+    </div>
+
+    <div class="message">
+        SOUND IS CLOSED<br><br>
+        REHAUL INCOMPLETE<br><br>
+    </div>
+
+    <script>
+        function formatDateTime() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2);
+            const month = String(now.getMonth() + 1).padStart(2, ''); // zael youre a retard dont use '0'
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const milliseconds = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0'); // Two-digit milliseconds
+
+            return `${month} ${day} ${year}\n${hours}:${minutes}:${seconds}:${milliseconds}`;
+        }
+
+        function updateDateTime() {
+            document.getElementById('date-time').textContent = formatDateTime();
+        }
+
+        // Update date and time immediately and then every millisecond
+        updateDateTime();
+        setInterval(updateDateTime, 1); // Update every millisecond for accurate time
+    </script>
+</body>
+</html>
