@@ -39,44 +39,52 @@
         }
 
         .message {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 400;
             margin-bottom: 20px;
         }
 
         .email-input {
             font-family: 'SF Pro', sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             padding: 10px;
             margin-bottom: 20px;
             border: none;
-            border-bottom: 1px solid #ccc;
             background: none;
             width: 300px;
             text-align: center;
+            border-bottom: 1px solid transparent;
         }
 
         .email-input:focus {
             outline: none;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid transparent;
         }
 
         .button {
             display: none;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 14px;
             font-family: 'SF Pro', sans-serif;
             cursor: pointer;
-            background-color: #000;
-            color: #fff;
+            background: none;
             border: none;
-            border-radius: 5px;
             margin-top: 10px;
+            text-transform: uppercase;
         }
 
         .button.skip {
-            background-color: #ccc;
+            color: #888;
+        }
+
+        .button.submit {
             color: #000;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
         }
     </style>
 </head>
@@ -86,8 +94,10 @@
         THIS IS COMPLETELY OPTIONAL
     </div>
     <input type="email" class="email-input" placeholder="SOUND.ZAEL@SOUND.ORG" id="email-input">
-    <button class="button submit" id="submit-button">Submit</button>
-    <button class="button skip" id="skip-button">Skip</button>
+    <div class="buttons-container">
+        <button class="button submit" id="submit-button">Submit</button>
+        <button class="button skip" id="skip-button">Skip</button>
+    </div>
 
     <script>
         const emailInput = document.getElementById('email-input');
@@ -96,7 +106,7 @@
 
         emailInput.addEventListener('input', () => {
             if (emailInput.value.length > 10) {
-                submitButton.style.display = 'block';
+                submitButton.style.display = 'inline';
             } else {
                 submitButton.style.display = 'none';
             }
@@ -104,7 +114,7 @@
 
         setTimeout(() => {
             if (emailInput.value === '') {
-                skipButton.style.display = 'block';
+                skipButton.style.display = 'inline';
             }
         }, 5000);
     </script>
